@@ -1,0 +1,23 @@
+<se-authentication
+  domain=""
+  app-title="Demo app"
+  version="1.0.0"
+  image-url="url(assets/login.jpg)"
+>
+  <form>
+    <se-form-field label="Username" required="true" option="stacked">
+      <input type="text" [(ngModel)]="userName" name="Username" />
+    </se-form-field>
+    <se-form-field label="Password" required="true" option="stacked">
+      <input type="password" [(ngModel)]="password" name="Password" />
+    </se-form-field>
+    <se-button
+      type="submit"
+      option="login"
+      value="myLoginValue"
+      (click)="login()"
+      [disabled]="isDisabled"
+      >Login</se-button
+    >
+  </form>
+</se-authentication>

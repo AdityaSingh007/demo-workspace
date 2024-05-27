@@ -1,0 +1,15 @@
+<se-container padding="large">
+  <se-block width="250px" option="fill">
+    <app-blog-post
+      [title]="article.title"
+      [content]="article.content"
+      (newMessage)="showMessageFromChild($event)"
+      ><app-blog-post> </app-blog-post
+    ></app-blog-post>
+  </se-block>
+  <se-block width="250px" option="fill">
+    <se-list *ngFor="let msg of messages">
+      <se-list-item>{{ msg }}</se-list-item>
+    </se-list>
+  </se-block>
+</se-container>

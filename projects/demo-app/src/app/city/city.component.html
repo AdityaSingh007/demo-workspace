@@ -1,0 +1,43 @@
+<se-container padding="large">
+  <se-block>
+    <form [formGroup]="citySearchForm" style="align-content: center">
+      <se-form-field label="Input" required="true">
+        <input type="text" formControlName="location" />
+        <div
+          *ngIf="
+            (formControl?.location?.errors?.required &&
+              formControl?.location?.touched) ||
+            showError
+          "
+          style="color: red"
+        >
+          Please enter a search location
+        </div>
+      </se-form-field>
+      <div style="margin-left: 312px">
+        <se-button option="flat" color="primary" (click)="getCityDetails()"
+          >Search for the city</se-button
+        >
+      </div>
+    </form>
+  </se-block>
+  <se-block>
+    <h4>Population Details:</h4>
+    <se-skeleton
+      width="300px"
+      count="4"
+      *ngIf="(this.loading$ | async) === true"
+    ></se-skeleton>
+    <pre *ngIf="this.populationDetails">
+      City:{{this.populationDetails.city | uppercase }}<br/>
+      Country:{{this.populationDetails.country | uppercase}}<br/>
+      Year:{{this.populationDetails.year}}<br/>
+      Value:{{this.populationDetails.value}}<br/>
+    </pre>
+  </se-block>
+</se-container>
+<!-- <se-loading
+  loading="true"
+  option="dialog"
+  *ngIf="(this.loading$ | async) === true"
+></se-loading> -->

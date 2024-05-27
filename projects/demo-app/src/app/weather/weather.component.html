@@ -1,0 +1,26 @@
+<se-container padding="large">
+  <se-block>
+    <form [formGroup]="weatherSearchForm" style="align-content: center">
+      <se-form-field label="Input" required="true">
+        <input type="text" formControlName="location" />
+        <div
+          *ngIf="
+            formControl?.location?.errors.required &&
+            formControl?.location?.touched
+          "
+          style="color: red"
+        >
+          Please enter a search location
+        </div>
+      </se-form-field>
+      <div style="margin-left: 285px">
+        <se-button option="flat" color="primary"
+          >Search for the weather</se-button
+        >
+      </div>
+    </form>
+  </se-block>
+  <se-block>
+    <h4>Weather Details:</h4>
+  </se-block>
+</se-container>

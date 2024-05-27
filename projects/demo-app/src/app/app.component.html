@@ -1,0 +1,24 @@
+<se-container position="absolute" direction="column">
+  <se-header domain="" app-title="DemoApp">
+    <div slot="end">
+      <se-dropdown alignment="right">
+        <se-button
+          slot="trigger"
+          option="inherit"
+          icon-color="primary"
+          icon="user_standard"
+        >
+          {{ this.userName }}</se-button
+        >
+        <se-list option="dropdown">
+          <se-divider></se-divider>
+          <se-list-item item="Logout" (click)="logOut()"> </se-list-item>
+        </se-list>
+      </se-dropdown>
+    </div>
+  </se-header>
+  <router-outlet></router-outlet>
+  <!-- <se-block-footer>
+    © 2023 Schneider Electric Industries SAS. All Rights Reserved.
+  </se-block-footer> -->
+</se-container>
